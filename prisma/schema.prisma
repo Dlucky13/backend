@@ -19,12 +19,23 @@ model User {
   updatedAt DateTime @updatedAt
   role String
 
-  email String
+  email String @unique
   hash String
 
   firstName String?
   lastName String?
   birthday DateTime?
+
+  @@map("users")
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+  description String?
+  products Product[]
+
+  @@map("categories")
 }
 
 
@@ -33,8 +44,11 @@ model Product {
   name String
   description String?
   price Int
-  category String?
   imgUrl String?
+
+  categoryId Int
+  category Category @relation(fields: [categoryId], references: [id])
+  @@map("products")
 }
 
 
