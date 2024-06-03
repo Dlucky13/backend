@@ -7,6 +7,7 @@ import { JwtStrategy } from './auth/strategy';
 import { CategoryModule } from './category/category.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { UserModule } from './user/user.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { UserModule } from './user/user.module';
     PrismaModule,
     UserModule,
     CategoryModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
